@@ -17,9 +17,9 @@
 	<!--表格树内容栏-->
     <el-table :data="tableTreeDdata" stripe size="mini" style="width: 100%;"
       v-loading="loading" element-loading-text="$t('action.loading')">
-      <el-table-column
-        prop="id" header-align="center" align="center" width="80" label="ID">
-      </el-table-column>
+     <!-- <el-table-column
+        prop="id" header-align="center" align="center" width="80" label="ID" hidden>
+      </el-table-column> -->
       <table-tree-column 
         prop="name" header-align="center" treeKey="id" width="150" label="名称">
       </table-tree-column>
@@ -91,9 +91,9 @@ export default {
       tableTreeDdata: [],
       dialogVisible: false,
       dataForm: {
-        id: 0,
+        id: '',
         name: '',
-        parentId: 0,
+        parentId: '',
         parentName: '',
         orderNum: 0
       },
@@ -135,9 +135,9 @@ export default {
 		handleAdd: function () {
 			this.dialogVisible = true
 			this.dataForm = {
-        id: 0,
+        id: '',
         name: '',
-        parentId: 0,
+        parentId: 'ROOT',
         parentName: '',
         orderNum: 0
       }

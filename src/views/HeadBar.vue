@@ -14,9 +14,9 @@
     <span class="navbar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" 
           :background-color="themeColor" text-color="#fff" active-text-color="#ffd04b" mode="horizontal" @select="selectNavBar()">
-      <!--  <el-menu-item index="1" @click="$router.push('/')">{{$t("common.home")}}</el-menu-item>
-        <el-menu-item index="2" @click="openWindow('https://gitee.com/liuge1988/kitty/wikis/Home')">{{$t("common.doc")}}</el-menu-item>
-        <el-menu-item index="3" @click="openWindow('https://www.cnblogs.com/xifengxiaoma/')">{{$t("common.blog")}}</el-menu-item> -->
+        <el-menu-item index="1" @click="$router.push('/')">{{$t("common.home")}}</el-menu-item>
+        <el-menu-item index="2" @click="openWindow('http://localhost:8080/#/registration')">注册</el-menu-item>
+        <el-menu-item index="3" @click="openWindow('https://www.cnblogs.com/xifengxiaoma/')">{{$t("common.blog")}}</el-menu-item> 
       </el-menu>
     </span>
     <!-- 工具栏 -->
@@ -29,6 +29,9 @@
             @onThemeChange="onThemeChange">
           </theme-picker>
         </el-menu-item>
+				<!-- <el-menu-item index="2"  :default="themeColor">
+					<el-link icon="el-icon-edit" >编辑</el-link>
+				</el-menu-item> -->
        <!-- <el-menu-item index="2" v-popover:popover-lang>
           语言切换 
           <li style="color:#fff;" class="fa fa-language fa-lg"></li>
@@ -55,6 +58,12 @@
             <notice-panel></notice-panel>
           </el-popover>
         </el-menu-item> -->
+				<el-menu-item index="6" v-popover:popover-personal>
+				  <!-- 用户信息 -->
+				  <el-popover ref="popover-personal" placement="bottom-end" trigger="click" :visible-arrow="false">
+				    <personal-panel :user="user"></personal-panel>
+				  </el-popover>
+				</el-menu-item>
         <el-menu-item index="6" v-popover:popover-personal>
           <!-- 用户信息 -->
           <span class="user-info"><img :src="user.avatar" />{{user.nickName}}</span>

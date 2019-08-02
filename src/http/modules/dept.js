@@ -7,6 +7,7 @@ import axios from '../axios'
 // 保存
 export const save = (data) => {
     return axios({
+		prefixUrl:'baseUrl',
         url: '/dept/save',
         method: 'post',
         data
@@ -15,6 +16,7 @@ export const save = (data) => {
 // 删除
 export const batchDelete = (data) => {
     return axios({
+		prefixUrl:'baseUrl',
         url: '/dept/delete',
         method: 'post',
         data
@@ -23,6 +25,7 @@ export const batchDelete = (data) => {
 // 查询机构树
 export const findDeptTree = () => {
     return axios({
+		prefixUrl:'baseUrl',
         url: '/dept/findTree',
         method: 'get'
     })
